@@ -13,12 +13,14 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static data.DataHelper.Registration.DeliveryDay;
+import static data.DataHelper.Registration.getCity;
 
 public class NewDeliveryTest {
     private RegistrationInfo fakeInfo = DataHelper.Registration.generateByCard("ru");
+    private String date = DeliveryDay(4);
+    private String nextdate = DeliveryDay(10);
 
-    String date = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-    String nextdate = LocalDate.now().plusDays(4).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
 
     @BeforeEach
     void setup() {
@@ -27,7 +29,7 @@ public class NewDeliveryTest {
 
     @Test
     void shouldSubmitIfAllCorrect(){
-        $("[placeholder='Город']").setValue(fakeInfo.getCity());
+        $("[placeholder='Город']").setValue(getCity());
         $("[placeholder='Дата встречи']").sendKeys(Keys.CONTROL+"a"+Keys.BACK_SPACE);
         $("[placeholder='Дата встречи'").setValue(date);
         $("[name='name']").setValue(fakeInfo.getName());
