@@ -35,7 +35,6 @@ public class NewDeliveryTest {
         $("[data-test-id='agreement']").click();
         $(byText("Запланировать")).click();
         $(".notification__content").waitUntil(visible, 15000).shouldHave(text(date));
-        //$("[data-test-id='success-notification']").waitUntil(visible, 15000).shouldHave(byText("Успешно! Встреча успешно забронирована на "+date));
 
         $("[data-test-id='success-notification'] .icon-button__text").click();
         $("[placeholder='Дата встречи']").sendKeys(Keys.CONTROL+"a"+Keys.BACK_SPACE);
