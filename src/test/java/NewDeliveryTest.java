@@ -4,22 +4,18 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static data.DataHelper.Registration.DeliveryDay;
+import static data.DataHelper.Registration.deliveryDay;
 import static data.DataHelper.Registration.getCity;
 
 public class NewDeliveryTest {
     private RegistrationInfo fakeInfo = DataHelper.Registration.generateByCard("ru");
-    private String date = DeliveryDay(4);
-    private String nextdate = DeliveryDay(10);
+    private String date = deliveryDay(4);
+    private String nextdate = deliveryDay(6);
 
 
     @BeforeEach

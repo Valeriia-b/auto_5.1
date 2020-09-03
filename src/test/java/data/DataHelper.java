@@ -19,11 +19,10 @@ public class DataHelper {
         public static RegistrationInfo generateByCard(String locale) {
             Faker faker = new Faker(new Locale("ru"));
             return new RegistrationInfo(
-                    faker.address().city(),
                     faker.name().name(),
                     faker.phoneNumber().phoneNumber());
         }
-        public static String DeliveryDay (int days){
+        public static String deliveryDay (int days){
             return LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
            }
 
